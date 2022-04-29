@@ -9,8 +9,10 @@ function addListItem() {
     listItem.className = 'list__item';
     let task = document.createElement('p');
     task.className = 'list__task'
+
     task.textContent = input.value;
+    
     listItem.append(task);
-    list.append(listItem);
+    list.prepend(listItem);
     input.value = ''
 }
