@@ -4,6 +4,7 @@ let list  = document.querySelector('.list');
 
 btn.addEventListener('click', addListItem);
 
+
 function addListItem() {
     let listItem = document.createElement('div');
     listItem.className = 'list__item';
@@ -14,5 +15,22 @@ function addListItem() {
     
     listItem.append(task);
     list.prepend(listItem);
-    input.value = ''
+    input.value = '';
+
+    listItem.addEventListener('mouseover', function() {
+        let delBtn = document.createElement('button');
+        delBtn.textContent = 'del';
+        listItem.append(delBtn)
+        console.log('worked')
+    
+        delBtn.addEventListener('click', function() {
+            listItem.remove()
+        })
+    });
+
+    listItem.removeEventListener('mouseout', function() {
+        delBtn.remove();
+    })
+
 }
+
